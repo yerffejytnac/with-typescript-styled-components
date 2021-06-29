@@ -9,8 +9,14 @@ export const GlobalStyles = createGlobalStyle`
 
   :root {
     text-size-adjust: none;
+    box-sizing: border-box;
+    
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
   }
-
   @font-face {
     font-family: Moderat;
     src: url(${fonts.ModeratRegularWoff2}) format("woff2"),
@@ -39,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
   }    
 
   body {
-    font-size: ${theme.fontSizes[1]}px;
+    font-size: ${theme.fontSizes[3]}px;
     line-height: 1.3;
     font-family: ${theme.fonts.body};
     text-size-adjust: 100%;
@@ -51,9 +57,19 @@ export const GlobalStyles = createGlobalStyle`
 
   pre {
     font-family: ${theme.fonts.monospace};
+    font-size: ${theme.fontSizes[0]}px;
+    max-width: 100%;
+    height: 25vh;
+    overflow: auto;
+    padding: ${theme.space[2]}px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: ${theme.fonts.heading};
+  }
+
+  svg {
+    fill: currentColor;
+    pointer-events: none;
   }
 `;
